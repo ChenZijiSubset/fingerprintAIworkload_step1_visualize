@@ -123,19 +123,19 @@ custom_label_positions = range(len(custom_labels))  # Set tick positions
 # Ylabel = ['%', 'MHz', 'Watt', 'Number', '%', 'Number']
 
 metrics_plot = ['CPUUtilization', 'AvgMHz-', 'Cycles',
-                'Instructions', 'Branches', 'Branch_Misses',
+                'Instructions', 'Branches', 'Branch_Misses', 'All_Branches_Using',
                 'C1-', 'C2-',
                 'POLL-', 'IRQ-',
                 'Cache_References', 'All_Cache_Reference_Using', 'Cache_Misses',
-                'Last_Level_Cache_Accesses', 'Load_Dispatches',
+                'Last_Level_Cache_Accesses', 'Load_Dispatches', 'Storage_Dispatches',
                 '%util', 'TCP', 'UDP',
                 'CorWatt-', 'PkgWatt-']
 Ylabel = ['%', 'MHz', 'Number',
-          'Number', 'Number', 'Number',
+          'Number', 'Number', 'Number', '%',
           '%', '%',
           '%', 'Number',
           'Number', '%', 'Number',
-          'Number', 'Number',
+          'Number', 'Number', 'Number',
           '%', 'Number', 'Number',
           'Watt', 'Watt']
 
@@ -170,5 +170,6 @@ for i, metric in enumerate(metrics_plot):
     title = metric.replace('/', '')
     print(title)
 
-    plt.show()
+    # plt.show()
     fig.savefig(f'./figures/{title}_8cpu.eps', bbox_inches='tight', pad_inches=0)
+    plt.close()
